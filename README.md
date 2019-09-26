@@ -248,8 +248,9 @@ powerCurveV1 = powerCurve(InteractionM, fixed("Visit:Diagnosis"), along = "Child
 plot(powerCurveV1)
 ```
 
-![](powercurve-1.png) Here we
-see that given the specified effect we would only have enough power with
+![](powercurve-1.png) 
+
+Here we see that given the specified effect we would only have enough power with
 75 participants!!
 
 **Is 0.1 a good estimate?** I would argue it is set too low. Why? Well
