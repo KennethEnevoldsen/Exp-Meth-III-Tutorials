@@ -260,7 +260,7 @@ each visit and what we know about the development of children MLU.
 
 ---
 
-## *Aditions aka. FAQ*
+## *Additions aka. FAQ*
 These are added in response to question I get so everyone can get to see them.
 
 ### Regarding choosing effect size - an example
