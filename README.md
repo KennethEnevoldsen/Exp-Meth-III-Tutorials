@@ -257,3 +257,21 @@ Here we see that given the specified effect we would only have enough power with
 because a TD child whom only improves by 0.1 mlu pr. visit is rather
 low. This conclusion naturally take into consideration the time between
 each visit and what we know about the development of children MLU.
+
+---
+
+## *Aditions aka. FAQ*
+These are added in response to question I get so everyone can get to see them.
+
+### Regarding choosing effect size - an example
+Choosing an effect size can be hard, but it is highly important since it requires field expertise as well as knowledge and assumptions about the data generating process. 
+For example if you were to measure whether Cognitive science students are smarter than the avereage student at Aarhus by measing IQ. We will then run a simulation for a power analysis and specify the least interesting effect between groups. Assuming the model we choose is:
+
+```lm(IQ ~ is_cogsci)```
+
+This corresponds to the beta estimates (e.g. slope) of the model. Naturally a slope of 0-1 would be only a minimal effekt, e.g. cogsci student are only **very** slighly smarter than the rest of student and would need a big sample to get this quite uninsteresting result. Alternatively, let's say we only consider an beta estimate of >5 interesting we set the minimal interesting effect to be 5, we can then measure how many participant we would need to measure the desired effect.
+
+Note that this can also be turned around. E.g. you could ask *"given that we collect 30 participants what is the smallest effect we can discover while maintaining a power of 80%?"*. You could do this by simply looping over a range of valid effect sizes and then estimating the power.
+
+Using field specific knowledge is also very similar to setting priors in a bayesian framework, so it might be an idea to get used quantifying your beliefs as you will have to do this more in the future.
+
