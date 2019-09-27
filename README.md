@@ -267,7 +267,9 @@ These are added in response to question I get so everyone can get to see them.
 Choosing an effect size can be hard, but it is highly important since it requires field expertise as well as knowledge and assumptions about the data generating process. 
 For example if you were to measure whether Cognitive science students are smarter than the avereage student at Aarhus by measing IQ. We will then run a simulation for a power analysis and specify the least interesting effect between groups. Assuming the model we choose is:
 
-```lm(IQ ~ is_cogsci)```
+``` r
+lm(IQ ~ is_cogsci)
+```
 
 This corresponds to the beta estimates (e.g. slope) of the model. Naturally a slope of 0-1 would be only a minimal effekt, e.g. cogsci student are only **very** slighly smarter than the rest of student and would need a big sample to get this quite uninsteresting result. Alternatively, let's say we only consider an beta estimate of >5 interesting we set the minimal interesting effect to be 5, we can then measure how many participant we would need to measure the desired effect.
 
