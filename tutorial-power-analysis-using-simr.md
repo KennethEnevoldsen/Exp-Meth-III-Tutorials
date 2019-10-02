@@ -277,3 +277,9 @@ Note that this can also be turned around. E.g. you could ask *"given that we col
 
 Using field specific knowledge is also very similar to setting priors in a bayesian framework, so it might be an idea to get used quantifying your beliefs as you will have to do this more in the future.
 
+
+### Regarding alpha at 0.05 and our beta at 0.8
+So in the assignment the values alpha at 0.05 and our beta at 0.8 is refered to.
+These two values signifies:
+alpha 0.05: the significance level we will be using
+beta 0.8: the power of the power simulation e.g. 80%
