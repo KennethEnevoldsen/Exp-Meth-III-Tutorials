@@ -56,10 +56,10 @@ FAQ
 
 ### How do i include formula in my R markdown?
 
-You first need to install a latex distribution on your system e.g. using
-the following install command `tinytex::install_tinytex()` You also need
-to set your header to output latex. The header for this script is for
-example:
+This is done using LaTeX. You first need to install a LaTeX distribution
+on your system e.g. using the following install command
+`tinytex::install_tinytex()` You also need to set your header to output
+latex. The header for this script is for example:
 
     ---
     title: "Tutorial_Scaling"
@@ -72,4 +72,4 @@ example:
     ---
 
 You then include latex using the double dollarsigns, in the following
-way: `$$x - \bar x$$`
+way: `$$ x - \bar x$$`
