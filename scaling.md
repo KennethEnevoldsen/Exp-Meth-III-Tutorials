@@ -18,7 +18,6 @@ $$
 The scale function performs a Z-score normalization, which can be seen
 here:
 
-    #tinytex::install_tinytex()
     set.seed(1) # set seed to ensure random number generation is the same
     x <- runif(7) # generate random numbers
 
@@ -51,3 +50,16 @@ here:
 *note* that scale is a class matrix, which might cause problems. If you
 want scale to return a numeric vector (a list of numbers) use
 `scale(x)[[1]]`.
+
+FAQ
+---
+
+### How do i include formula in my R markdown?
+
+You first need to install a latex distribution on your system e.g. using
+the following install command `tinytex::install_tinytex()` You also need
+to set your header to output latex. The header for this script is for
+example:
+`--- title: "Tutorial_Scaling" author: "Kenneth C. Enevoldsen" date: "10/14/2019" header-includes:    - \usepackage{bbm} output:     html_document: md_document --- You then include latex using the double dollarsigns, in the following way:`
+*x* − *x̄*
+\`
