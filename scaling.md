@@ -60,6 +60,16 @@ You first need to install a latex distribution on your system e.g. using
 the following install command `tinytex::install_tinytex()` You also need
 to set your header to output latex. The header for this script is for
 example:
-`--- title: "Tutorial_Scaling" author: "Kenneth C. Enevoldsen" date: "10/14/2019" header-includes:    - \usepackage{bbm} output:     html_document: md_document --- You then include latex using the double dollarsigns, in the following way:`
-*x* − *x̄*
-\`
+
+    ---
+    title: "Tutorial_Scaling"
+    author: "Kenneth C. Enevoldsen"
+    date: "10/14/2019"
+    header-includes:
+       - \usepackage{bbm}
+    output:
+        html_document: md_document
+    ---
+
+You then include latex using the double dollarsigns, in the following
+way: `$$x - \bar x$$`
