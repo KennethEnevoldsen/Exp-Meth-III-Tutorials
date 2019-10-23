@@ -12,38 +12,20 @@ Load Data and Data Preperation
 ------------------------------
 
 ``` r
-heavy_data <- read_csv("datasets/Lacourse et al. (2001) Females.csv") %>% 
+heavy_data <- read_csv("datasets/Lacourse et al. (2001) Females.csv", col_types = cols()) %>% 
   mutate_at(c("Age_Group", "Marital_Status", "Gender", "Suicide_Risk"), as.factor)
+
+#examine dataset
+heavy_data %>% head(5) %>% knitr::kable()
 ```
 
-    ## Parsed with column specification:
-    ## cols(
-    ##   Age = col_double(),
-    ##   Age_Group = col_character(),
-    ##   Drug_Use = col_double(),
-    ##   Father_Negligence = col_double(),
-    ##   Gender = col_character(),
-    ##   Isolation = col_double(),
-    ##   Marital_Status = col_character(),
-    ##   Meaninglessness = col_double(),
-    ##   Metal = col_double(),
-    ##   Mother_Negligence = col_double(),
-    ##   Normlessness = col_double(),
-    ##   Self_Estrangement = col_double(),
-    ##   Suicide_Risk = col_character(),
-    ##   Vicarious = col_double(),
-    ##   Worshipping = col_double()
-    ## )
-
-``` r
-colnames(heavy_data)
-```
-
-    ##  [1] "Age"               "Age_Group"         "Drug_Use"         
-    ##  [4] "Father_Negligence" "Gender"            "Isolation"        
-    ##  [7] "Marital_Status"    "Meaninglessness"   "Metal"            
-    ## [10] "Mother_Negligence" "Normlessness"      "Self_Estrangement"
-    ## [13] "Suicide_Risk"      "Vicarious"         "Worshipping"
+|    Age| Age\_Group      |  Drug\_Use|  Father\_Negligence| Gender |  Isolation| Marital\_Status       |  Meaninglessness|     Metal|  Mother\_Negligence|  Normlessness|  Self\_Estrangement| Suicide\_Risk |  Vicarious|  Worshipping|
+|------:|:----------------|----------:|-------------------:|:-------|----------:|:----------------------|----------------:|---------:|-------------------:|-------------:|-------------------:|:--------------|----------:|------------:|
+|  15.83| 14-16 Years Old |          8|                  17| Female |          6| Together              |               10|  4.837625|                  10|             6|                  15| Non-Suicidal  |          5|            4|
+|  14.92| 14-16 Years Old |          9|                  23| Female |          8| Together              |               26|  6.000000|                  12|             8|                  20| Non-Suicidal  |          4|            6|
+|  15.33| 14-16 Years Old |          5|                  15| Female |         18| Together              |               19|  6.000000|                  16|             7|                  17| Non-Suicidal  |          6|            3|
+|  15.83| 14-16 Years Old |         11|                  11| Female |          9| Separated or Divorced |               13|  4.000000|                  10|             5|                  12| Non-Suicidal  |          3|            3|
+|  14.92| 14-16 Years Old |          7|                  13| Female |          5| Together              |               13|  8.000000|                  16|             3|                   6| Non-Suicidal  |          3|            9|
 
 ``` r
 # Prep the dataset
@@ -105,7 +87,9 @@ rec #inspect rec
     ## Correlation filter removed no terms [trained]
     ## Check missing values for Age, Drug_Use, ... [trained]
 
-Please notice that if you ha
+This is naturally just an example of how a reciple could be done. It
+does not need to check for e.g. missing values or correlation if I know
+it is not an issue.
 
 ### Apply recipe to test
 
@@ -222,6 +206,7 @@ test_results %>%
 
 For more on how to interpret roc curves see this [toward datascience
 blogpost](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
+
 For more on how to interpret gain curves see this [stack exchange
 question](https://stats.stackexchange.com/questions/279385/gain-curve-interpretation)
 
@@ -399,7 +384,7 @@ CV <- cross_validate_fn(
   type = 'binomial',
   predict_fn = rf_predict_fn
 )
-CV %>% head() %>% knitr::kable()
+CV %>% knitr::kable() 
 ```
 
 |     Balanced Accuracy|            F1|     Sensitivity|     Specificity|     Pos Pred Value|     Neg Pred Value|           AUC|      Lower CI|      Upper CI|          Kappa|            MCC|     Detection Rate|     Detection Prevalence|     Prevalence| Predictions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | ROC                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Confusion Matrix | Coefficients |  Folds|  Fold Columns|  Convergence Warnings|  Other Warnings| Warnings and Messages | Family | Dependent | Fixed |
