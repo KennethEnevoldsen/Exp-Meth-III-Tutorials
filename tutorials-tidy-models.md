@@ -1,3 +1,6 @@
+Currently commentary in this file is fairly limited, let me know if
+there is specific points which you feel could need more explanation.
+
 Load packages
 -------------
 
