@@ -384,6 +384,7 @@ CV <- cross_validate_fn(
   type = 'binomial',
   predict_fn = rf_predict_fn
 )
+<<<<<<< HEAD
 CV %>% head(2)
 ```
 
@@ -400,6 +401,11 @@ CV %>% head(2)
     ## #   Warnings` <int>, `Other Warnings` <int>, `Warnings and
     ## #   Messages` <list>, Family <chr>, Dependent <chr>, Fixed <chr>
 
+=======
+CV %>% knitr::kable(format = "latex", booktabs = TRUE, linesep = "") #due to odd print of table
+```
+
+>>>>>>> 0dfa01d63303b9ef45626d5c7644747ff538f747
 ### I want to do more!
 
 Well you crazy bastard! I encourage you to do one of these two things
