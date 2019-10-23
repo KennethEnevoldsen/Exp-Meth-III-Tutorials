@@ -4,3 +4,4 @@
 .Ruserdata
 Exp-Meth-III-Tutorials.Rproj
 *.rmd
+.DS_Store
