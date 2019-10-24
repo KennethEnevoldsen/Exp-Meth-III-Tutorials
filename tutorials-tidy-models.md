@@ -343,11 +343,11 @@ it does and why it works. What should the maximum value of
 
     df %>% select(id, study) %>% unique() %>%  group_by(id) %>% summarise(n_studies_pr_id = n()) %>% View()
 
-### Can I please have some more CVMS?
+### Can I please have some more cvms?
 
-Of course you can! Note that you will need to update cvms from CRAN,
-before the following work. The following is an example sent to me by
-Ludvig.
+Of course you can! The following is an example sent to me by Ludvig on
+how to use tidy models with cvms. Note that you will need to update cvms
+from CRAN, before the following work.
 
 ``` r
 # Attach packages
@@ -402,7 +402,31 @@ CV %>%
 ### I want to do more!
 
 Well you crazy bastard! I encourage you to do one of these two things
-(or both): 1) do a bootstrapped and nested cross validation 2) make a
-ensample model, which combines it input of multiple models. Does
-combining models yield better results? What a potential issues with this
-approach?
+(or both):
+
+1.  do a bootstrapped and nested cross validation
+
+2.  make a ensample model, which combines it input of multiple models.
+    Does combining models yield better results? What a potential issues
+    with this approach?
+
+### I have a 100% accuracy!
+
+It seems like you have some kind of data leakage. Try to check the
+following:
+
+1.  Check that you don’t use predictor which gives you the diagnosis
+    e.g. filename, sympton severity etc.
+
+2.  If you use a random intercept for ID, make sure when you predict
+    that the model doesn’t apply previous knowledge of for random
+    intercepts. One way to do this is to is to simply change ID after
+    fitting (e.g. `ID_101` -&gt; `ID_101_test`). An even simpler way is
+    to remove the random intercept entirely. I suggest comparing the two
+    approaches and see which ones performs the best.
+
+### How do I add a random effect to tidy models?
+
+As far as I know you can’t (at least not yet), see [this GitHub issue
+for more](https://github.com/tidymodels/parsnip/issues/35). But I
+recommend looking at the FAQ titled: ‘Can I please have some more cvms?’
